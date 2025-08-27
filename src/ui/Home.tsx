@@ -113,8 +113,16 @@ function Home() {
 
         <div className="w-[350px] flex flex-col gap-3 max-w-2xl md:w-8/12">
           <div className="flex flex-col px-8">
-            <ClientOnly>
-              <h2 className="text-sm text-center my-4 text-purple-300 font-medium md:text-base">{joke}</h2>
+            <ClientOnly
+              fallback={
+                <h2 className="text-sm text-center my-4 text-purple-300 font-medium md:text-base min-h-20 flex flex-col justify-center items-center">
+                  11:59:59 am is my favorite time of day. It’s second to noon.
+                </h2>
+              }
+            >
+              <h2 className="text-sm text-center my-4 text-purple-300 font-medium md:text-base min-h-20 flex flex-col justify-center items-center">
+                {joke}
+              </h2>
             </ClientOnly>
 
             <UserTextInput />
