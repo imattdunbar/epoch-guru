@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+:root,
+html,
+body,
+#root {
+  @apply bg-stone-900 w-full h-full;
+}
