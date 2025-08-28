@@ -9,7 +9,12 @@ export function getRandomJoke(): string {
     'I know someone who was habitually late, until his doctor reccomended sleeping in a herb garden. Sounds odd, I know, but now he wakes up on Thyme.',
     'I heard a really good time travel joke tomorrow.',
     'Pleased to say I was voted “Most likely to travel back in time, Class of 2053”.',
-    'Feeling nostalgic about my childhood summers, when we would climb into old tires and roll down the hills. They were goodyears.'
+    'Feeling nostalgic about my childhood summers, when we would climb into old tires and roll down the hills. They were goodyears.',
+    'What happens when you annoy a clock? It gets ticked off.',
+    'Why did the man throw the clock out the window? He wanted to see time fly.',
+    'What time does a duck wake up? At the quack of dawn.',
+    'Why is everyone so tired on April 1st? They just finished a March of 31 days.',
+    'Why did the clock get sent to the principal’s office? It was tocking too much.'
   ]
 
   const i = Math.floor(Math.random() * jokes.length)

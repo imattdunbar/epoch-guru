@@ -23,7 +23,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           visibleToasts={1}
           // bg-stone-800 = #292524
           style={{ '--normal-border': 'transparent', '--normal-bg': '#292524' } as React.CSSProperties}
-          toastOptions={{ style: { width: 'fit-content', marginInline: 'auto' } }}
+          toastOptions={{ style: { width: 'fit-content', maxWidth: '320px', marginInline: 'auto' } }}
         />
         <Scripts />
       </body>
