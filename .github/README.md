@@ -10,4 +10,4 @@
 
 ### Pre-rendered site built with [Tanstack Start](https://tanstack.com/start/latest)
 
-Simple showcase of some of my favorite libraries I use in pretty much every web project: [Zod](https://zod.dev/), [dayjs](https://day.js.org/).
+Simple showcase of some of my favorite libraries I use in pretty much every web project: [Zod](https://zod.dev/), [dayjs](https://day.js.org/), and [Zustand](https://zustand.docs.pmnd.rs/).
