@@ -17,6 +17,6 @@ export function getRandomJoke(): string {
     'Why did the clock get sent to the principal’s office? It was tocking too much.'
   ]
 
-  const i = Math.floor(Math.random() * jokes.length)
+  const i = Date.now() % jokes.length
   return jokes[i]
 }

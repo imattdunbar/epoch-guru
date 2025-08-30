@@ -191,17 +191,12 @@ const UserTextInput = () => {
 const Joke = () => {
   const joke = useCurrentJoke()
 
+  const className =
+    'text-sm text-center my-4 text-purple-300 font-medium md:text-base min-h-20 flex flex-col justify-center items-center'
+
   return (
-    <ClientOnly
-      fallback={
-        <h2 className="text-sm text-center my-4 text-purple-300 font-medium md:text-base min-h-20 flex flex-col justify-center items-center">
-          11:59:59 am is my favorite time of day. It’s second to noon.
-        </h2>
-      }
-    >
-      <h2 className="text-sm text-center my-4 text-purple-300 font-medium md:text-base min-h-20 flex flex-col justify-center items-center">
-        {joke}
-      </h2>
+    <ClientOnly fallback={<div className={className} />}>
+      <h2 className={className}>{joke}</h2>
     </ClientOnly>
   )
 }
