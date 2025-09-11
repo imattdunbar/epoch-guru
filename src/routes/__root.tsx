@@ -15,6 +15,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <meta name="format-detection" content="telephone=no" />
       </head>
       <body>
         {children}
