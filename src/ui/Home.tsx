@@ -65,7 +65,9 @@ const TickingDate = () => {
                 Seconds
               </span>
             </div>
-            <h2 className="text-lg font-semibold text-gray-300">{date.unix()}</h2>
+            <h2 className="text-lg font-semibold text-gray-300" x-apple-data-detectors="false">
+              {date.unix()}
+            </h2>
           </div>
 
           <div
@@ -77,7 +79,9 @@ const TickingDate = () => {
                 Milliseconds
               </span>
             </div>
-            <h2 className="text-lg font-semibold text-gray-300">{date.valueOf()}</h2>
+            <h2 className="text-lg font-semibold text-gray-300" x-apple-data-detectors="false">
+              {date.valueOf()}
+            </h2>
           </div>
 
           <div
