@@ -1,37 +1,36 @@
-import { create } from 'zustand'
+import { useStore } from '@tanstack/react-store'
 import dayjs from 'dayjs'
 import { getRandomJoke } from '@/util/jokes'
 import { ReactNode } from 'react'
+import { createStore } from '@/util/store'
 
-interface Store {
+interface EGStore {
   currentDate: dayjs.Dayjs | null
   userInput: string
   currentJoke: string
   userResult?: ReactNode
 }
 
-export const useStore = create<Store>(() => ({
-  currentDate: null,
-  userInput: '',
-  currentJoke: getRandomJoke()
-}))
+const store = createStore<EGStore>({
+  initialState: { currentDate: null, userInput: '', currentJoke: getRandomJoke() },
+  name: 'Epoch Guru',
+  devtools: true
+})
 
-// selectors
-export const useCurrentDate = () => useStore((state) => state.currentDate)
-export const useUserInput = () => useStore((state) => state.userInput)
-export const useCurrentJoke = () => useStore((state) => state.currentJoke)
-export const useUserResult = () => useStore((state) => state.userResult)
+export const useCurrentDate = () => useStore(store, (state) => state.currentDate)
+export const useUserInput = () => useStore(store, (state) => state.userInput)
+export const useCurrentJoke = () => useStore(store, (state) => state.currentJoke)
+export const useUserResult = () => useStore(store, (state) => state.userResult)
 
-// Global interval reference
 let intervalRef: NodeJS.Timeout | null = null
 
-// Simple functions
 export const startTicking = () => {
   if (intervalRef) return
 
-  useStore.setState({ currentDate: dayjs() })
+  store.update({ currentDate: dayjs() })
+
   intervalRef = setInterval(() => {
-    useStore.setState({ currentDate: dayjs() })
+    store.update({ currentDate: dayjs() })
   }, 1000)
 }
 
@@ -43,9 +42,9 @@ export const stopTicking = () => {
 }
 
 export const setUserInput = (input: string) => {
-  useStore.setState({ userInput: input })
+  store.update({ userInput: input })
 }
 
 export const setUserResult = (node?: ReactNode) => {
-  useStore.setState({ userResult: node })
+  store.update({ userResult: node })
 }
