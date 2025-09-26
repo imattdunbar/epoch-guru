@@ -14,7 +14,7 @@ interface EGStore {
 const store = createStore<EGStore>({
   initialState: { currentDate: null, userInput: '', currentJoke: getRandomJoke() },
   name: 'Epoch Guru',
-  devtools: true
+  devtools: import.meta.env.DEV
 })
 
 export const useCurrentDate = () => useStore(store, (state) => state.currentDate)
