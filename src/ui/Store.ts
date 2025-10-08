@@ -22,7 +22,7 @@ export const useUserInput = () => useStore(store, (state) => state.userInput)
 export const useCurrentJoke = () => useStore(store, (state) => state.currentJoke)
 export const useUserResult = () => useStore(store, (state) => state.userResult)
 
-let intervalRef: NodeJS.Timeout | null = null
+let intervalRef: ReturnType<typeof setInterval> | null = null
 
 export const startTicking = () => {
   if (intervalRef) return
