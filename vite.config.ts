@@ -1,8 +1,9 @@
 import { defineConfig, Plugin } from 'vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
-import viteTsConfigPaths from 'vite-tsconfig-paths'
+import tsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
+import { nitro } from 'nitro/vite'
 
 // Necessary for working with SSR routes + no dependency useEffects
 // HMR reloads the components but useEffect doesn't run again
@@ -20,14 +21,11 @@ const config = defineConfig({
     port: 3969
   },
   plugins: [
-    // this is the plugin that enables path aliases
-    viteTsConfigPaths({
+    tsConfigPaths({
       projects: ['./tsconfig.json']
     }),
     tailwindcss(),
     tanstackStart({
-      customViteReactPlugin: true,
-      target: 'vercel',
       sitemap: {
         host: 'https://epoch.guru'
       },
@@ -41,6 +39,11 @@ const config = defineConfig({
         onSuccess: (result) => {
           console.log(`Prerendered path ${result.page.path}`)
         }
+      }
+    }),
+    nitro({
+      config: {
+        preset: 'vercel'
       }
     }),
     viteReact(),
