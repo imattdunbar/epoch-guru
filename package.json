@@ -30,10 +30,10 @@
     "@tanstack/react-router-devtools": "^1.133.35",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "@vitejs/plugin-react": "^4.7.0",
+    "@vitejs/plugin-react": "^5.1.0",
     "nitro": "^3.0.1-alpha.0",
     "typescript": "^5.9.3",
-    "vite": "^6.4.1",
+    "vite": "^7.1.12",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "trustedDependencies": [
