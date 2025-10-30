@@ -1,4 +1,7 @@
 import { HeadContent, Scripts, createRootRouteWithContext } from '@tanstack/react-router'
+import { TanStackDevtools } from '@tanstack/react-devtools'
+import { ReactQueryDevtoolsPanel } from '@tanstack/react-query-devtools'
+import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { RouterContext } from '@/router'
 import { defaultHead } from '@/util/seo'
 import { Toaster } from 'sonner'
@@ -30,12 +33,26 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         />
         <Scripts />
 
-        {!isDev && (
+        {isDev ? (
+          <TanStackDevtools
+            config={{ hideUntilHover: true }}
+            plugins={[
+              {
+                name: 'TanStack Query',
+                render: <ReactQueryDevtoolsPanel />
+              },
+              {
+                name: 'TanStack Router',
+                render: <TanStackRouterDevtoolsPanel />
+              }
+            ]}
+          />
+        ) : (
           <script
             defer
             src="https://stats.mattdunbar.io/script.js"
             data-website-id="c44c0322-7d74-4d5b-bc4a-8d4ef2abca65"
-          ></script>
+          />
         )}
       </body>
     </html>
